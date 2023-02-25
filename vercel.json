@@ -1,0 +1,32 @@
+{
+ "version": 2,
+ "builds":[
+    {
+        "src":"myta/wsgi.py",
+        "use":"@vercel/python",
+        "config":{"maxLamdaSize":"15mb","runtime":"python 3.9"}
+
+    },
+    {
+        "src":"buil_files.sh",
+        "use":"@vercel/static-build",
+        "config":{
+            "distDir":"static-build"
+        }
+
+    }
+ ],
+ "routes":[
+    {
+        "src":"/static/(.*)",
+        "distDir":"/static/$1"
+
+    },
+    {
+        "src":"/(.*)",
+        "distDir":"myta/wsgi.py"
+
+    }
+ ]
+
+}

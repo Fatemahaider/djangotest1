@@ -11,7 +11,6 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 
 from pathlib import Path
-import django_heroku
 from django.contrib import messages
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -27,7 +26,7 @@ SECRET_KEY = 'django-insecure-n20^tp59%#7-hjo$_o+onu+xw=nj&sm&g%w-aa%mb^euq1yii9
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['.versal.app','.now.sh']
 
 
 # Application definition
@@ -81,20 +80,20 @@ WSGI_APPLICATION = 'myta.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'ta',
-        'USER':'root',
-        'PASSWARD':'',
-        'HOST':'localhost',
-        'PORT':'3306',
-        'OPTIONS': {
-            'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
-}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': 'ta',
+#         'USER':'root',
+#         'PASSWARD':'',
+#         'HOST':'localhost',
+#         'PORT':'3306',
+#         'OPTIONS': {
+#             'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
+# }
        
-    }
-}
+#     }
+# }
 
 
 # Password validation
@@ -131,7 +130,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
-STATIC_URL = 'static/'
+# STATIC_URL = 'static/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
@@ -143,16 +142,17 @@ MESSAGE_TAGS = {
     messages.ERROR:'danger'
 }
 
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_PORT = 587
-EMAIL_USE_TLS = True
-# EMAIL_HOST_USER = 'bharmalhaider167@gmail.com' 
-# EMAIL_HOST_PASSWORD = 'Haibh167*'
-# DEFAULT_FROM_EMAIL = 'bharmalhaider167@gmail.com'
-EMAIL_HOST_USER = 'haider.b@somaiya.edu' 
-EMAIL_HOST_PASSWORD = 'Haikjs5253*'
-DEFAULT_FROM_EMAIL = 'haider.b@somaiya.edu'
+# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+# EMAIL_HOST = 'smtp.gmail.com'
+# EMAIL_PORT = 587
+# EMAIL_USE_TLS = True
+# # EMAIL_HOST_USER = 'bharmalhaider167@gmail.com' 
+# # EMAIL_HOST_PASSWORD = 'Haibh167*'
+# # DEFAULT_FROM_EMAIL = 'bharmalhaider167@gmail.com'
+# EMAIL_HOST_USER = 'haider.b@somaiya.edu' 
+# EMAIL_HOST_PASSWORD = 'Haikjs5253*'
+# DEFAULT_FROM_EMAIL = 'haider.b@somaiya.edu'
 
-
-django_heroku.settings(locals())
+import os 
+STATIC_DIRS = os.path.join(BASE_DIR,'mybase/static')
+STATIC_ROOT = os.path.join(BASE_DIR,'staticfiles_build','mybase/static')
