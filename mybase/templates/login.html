@@ -1,0 +1,65 @@
+{% extends 'base_auth.html' %}
+{% load static %}
+
+
+{% block content %}
+
+<div class="row">
+  <div class="col-md-4"></div>
+  <div class="col-md-4">
+    <div class="card mt-5">
+
+
+      <div class="card-body">
+        <div class="card-title py-3">
+          <h4>Login Account</h4>
+        </div>
+        <form action="" method="post">
+
+          {% csrf_token %}
+            {%include 'messages.html'%}
+            
+            <div class="form-group">
+            <input
+              type="text"
+              name="username"
+              placeholder="username"
+              id="usernameField"
+              value="{{formval.username}}"
+              required
+              class="form-control form-control-sm validateclass"
+            />
+          </div>
+          
+          <div class="form-group">
+            <input
+              type="password"
+              name="password"
+              placeholder="Password"
+              class="form-control form-control-sm"
+              id="passwordField"
+              required
+            />
+            </div>
+        <div class="form-group">
+            <small class="float-right py-3 showPasswordToggle" style="color: rgb(0, 0, 0);">SHOW</small>
+        </div>
+          
+          <input type="submit" value="Login" id="btn" class="btn btn-block btn-primary submit-btn" />
+        </form>
+
+      </div>
+
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4"></div>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+
+
+<script src="{% static 'js/login.js' %}"></script>
+
+
+
+{% endblock content %}

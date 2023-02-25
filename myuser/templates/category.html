@@ -1,0 +1,40 @@
+<div class="container mt-3">
+    <h5> Add Category</h5>
+
+    <form action="{% url 'user_general'%}" method="post">
+        {% csrf_token %}
+        <div class="input-group">    
+        <input
+              type="text"
+              class="form-control form-control-m"
+              name="category"
+              value="{{values.source}}"
+              placeholder="Add New Category"
+              required />
+
+        <div class="input-group-append">
+          <input class="btn btn-outline-secondary" type="submit" value="Save" />
+        </div>
+    </div>
+        </form>
+
+        <div class="app-table">
+
+            <table class="table table-stripped table-hover">
+              <thead>
+                <tr>
+                  <th>SrNo</th>
+                  <th>Category</th>
+                </tr>
+              </thead>
+              <tbody>
+                  {% for x in category %}
+                <tr>
+                    {{category.value}}
+                </tr>
+                {% endfor %}
+              </tbody>
+           </table>
+        </div>   
+</div>
+  
